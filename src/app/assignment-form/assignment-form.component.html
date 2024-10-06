@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label for="startDate">תאריך התחלה:</label>
-      <input id="startDate" type="date" formControlName="startDate" />
+      <input id="startDate" type="date" formControlName="startDate" (change)="onDateChange()"/>
       <div *ngIf="assignmentForm.get('startDate')?.invalid && assignmentForm.get('startDate')?.touched">
         <small class="error">תאריך התחלה הוא שדה חובה</small>
       </div>
@@ -27,8 +27,9 @@
 
     <div class="form-group">
       <label for="endDate">תאריך סיום:</label>
-      <input id="endDate" type="date" formControlName="endDate" />
+      <input id="endDate" type="date" formControlName="endDate" (change)="onDateChange()" />
     </div>
+    <small *ngIf="incorectDate" class="error">תאריך ההתחלה אחרי תאריך הסיום</small>
 
     <div class="form-group">
       <label for="type">סוג משימה:</label>
@@ -52,6 +53,6 @@
     <button type="button" class="back-button" (click)="goBack()">חזרה</button>
 
     <!-- כפתור Submit - ננעל עד שהטופס יהיה תקין -->
-    <button type="submit" class="submit-button" [disabled]="assignmentForm.invalid">שלח</button>
+    <button type="submit" class="submit-button" [disabled]="assignmentForm.invalid||incorectDate">שלח</button>
   </form>
 </div>

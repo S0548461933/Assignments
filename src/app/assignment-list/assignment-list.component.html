@@ -11,12 +11,10 @@
     [value]="assignments"
     dataKey="id"
     [rows]="10"
-    [showCurrentPageReport]="true"
     [rowsPerPageOptions]="[10, 25, 50]"
     [loading]="loading"
     [paginator]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['name', 'description', 'type']"
     class="custom-table"
     [sortMode]="'single'" 
     [sortField]="sortField"
@@ -60,7 +58,7 @@
     <ng-template pTemplate="body" let-assignment>
         <tr *ngFor="let assignment of assignments">
             <td>{{assignment.id}}</td>
-            <td>{{ assignment.type }}</td>
+            <td>{{ assignment.assignmentType }}</td>
             <td>{{ assignment.name }}</td>
             <td>{{ assignment.description }}</td>
 

@@ -11,6 +11,7 @@ import { Assignment } from '../models/assignment';
 })
 export class AssignmentFormComponent implements OnInit {
   assignmentForm!: FormGroup;
+  incorectDate: boolean=false;
 
   constructor(private fb: FormBuilder, private assignmentService: AssignmentService, private router: Router) 
   {
@@ -28,7 +29,6 @@ export class AssignmentFormComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger
     if (this.assignmentForm.valid) {
       const newAssignment: Assignment = this.assignmentForm.value;
       
@@ -49,6 +49,10 @@ export class AssignmentFormComponent implements OnInit {
     this.router.navigate(['/assignments']);
   }
 
-
+  onDateChange(){
+    this.incorectDate=false;
+    if(this.assignmentForm.value["startDate"]>this.assignmentForm.value["endDate"])
+      this.incorectDate=true
+  }
 
 }

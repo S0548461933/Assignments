@@ -5,42 +5,21 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { Router } from '@angular/router';
 import { Assignment } from '../models/assignment';
 
-interface AssignmentInterface {
-  id: number;
-  type: string;
-  name: string;
-  description: string;
-  startDate: Date;
-  endDate?: Date | null;
-  isRecurring: boolean;
-  isCompleted: boolean;
-  isArchived: boolean;
-}
+
 @Component({
   selector: 'app-assignment-list',
   templateUrl: './assignment-list.component.html',
   styleUrls: ['./assignment-list.component.css']
 })
 export class AssignmentListComponent implements OnInit {
-  assignments: AssignmentInterface[] = [
-    {
-      id: 1,
-      type: 'Work',
-      name: 'Assignment 1',
-      description: 'Description for Assignment 1',
-      startDate: new Date('2024-09-01'),
-      endDate: null,
-      isRecurring: false,
-      isCompleted: false,
-      isArchived: false
-    },
-    
+  assignments:Assignment []= [new Assignment(1,'Work',new Date('2024-09-01'),false,'Personal',false,'Description for Assignment 1',false)
   ];
   loading: boolean = true;
+  assignmentsFull=[...this.assignments];
+
   showArchived: boolean = false; 
   sortField: string = ''; 
   sortOrder: number = 1; 
-
   constructor(private assignmentService: AssignmentService,private tableModul:TableModule,private checkboxModule:CheckboxModule,private router: Router) {}
 
   ngOnInit(): void {
@@ -53,52 +32,53 @@ export class AssignmentListComponent implements OnInit {
     this.assignmentService.getAssignments().subscribe((data: Assignment[]) => {
         console.log(data);
         
-        const oneWeekAgo = new Date();
-        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7); // מחשב תאריך לפני שבוע
-
+      
         this.assignments = data.map(assignment => {
 
-          const assignmentInterface: AssignmentInterface = {
+          const assignments: Assignment = {
                 id: assignment.id,
-                type: assignment.assignmentType || 'Unknown', 
+                assignmentType: assignment.assignmentType || 'Unknown', 
                 name: assignment.name,
                 description: assignment.description,
                 startDate: assignment.startDate,
-                endDate: assignment.endDate || null,
+                endDate: assignment.endDate || undefined,
                 isRecurring: assignment.isRecurring,
                 isCompleted: assignment.isCompleted,
                 isArchived: false, 
             };
-
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7); // מחשב תאריך לפני שבוע
+    
             // בודק אם המשימה הושלמה לפני שבוע
             if (assignment.isCompleted && assignment.endDate && new Date(assignment.endDate) < oneWeekAgo) {
-                assignmentInterface.isArchived = true;
+                assignment.isArchived = true;
             }
-            return assignmentInterface; 
+            return assignment; 
         });
         // מסנן משימות לפי בחירה
         this.filterAssignments();
         this.loading = false;
+        debugger
+        this.assignmentsFull=[...this.assignments];
+
     });
 }
 
+
 filterAssignments(): void {
-  this.assignments = this.assignments.filter(assignment => this.showArchived || !assignment.isArchived);
+  debugger
+  this.assignments = this.assignmentsFull.filter(assignment => this.showArchived || !assignment.isArchived);
 }
 
-  deleteAssignment(id: number) {
-    this.assignments = this.assignments.filter(assignment => assignment.id !== id);
-  }
 
-
-  archiveAssignment(assignment: AssignmentInterface):void {
+  archiveAssignment(assignment: Assignment):void {
     assignment.isArchived = true;
   }
   createNewAssignment(){
     this.router.navigate(['/create-assignment']);
   }
 
-  toggleCompletion(assignment: AssignmentInterface): void {
+  toggleCompletion(assignment: Assignment): void {
     assignment.isCompleted = !assignment.isCompleted; // משנה את מצב הצ'ק בוקס
     if (assignment.isCompleted) {
       assignment.endDate = new Date(); // מגדיר את תאריך הסיום
