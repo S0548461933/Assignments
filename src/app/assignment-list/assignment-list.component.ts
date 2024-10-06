@@ -38,8 +38,8 @@ export class AssignmentListComponent implements OnInit {
   ];
   loading: boolean = true;
   showArchived: boolean = false; 
-  sortField: string = ''; // לא ניתן ל-null
-  sortOrder: number = 1; // שים ערך ברירת מחדל (1, 0 או -1, תלוי איך אתה רוצה למיין)
+  sortField: string = ''; 
+  sortOrder: number = 1; 
 
   constructor(private assignmentService: AssignmentService,private tableModul:TableModule,private checkboxModule:CheckboxModule,private router: Router) {}
 
@@ -57,8 +57,8 @@ export class AssignmentListComponent implements OnInit {
         oneWeekAgo.setDate(oneWeekAgo.getDate() - 7); // מחשב תאריך לפני שבוע
 
         this.assignments = data.map(assignment => {
-            // ודא שכל השדות קיימים
-            const assignmentInterface: AssignmentInterface = {
+
+          const assignmentInterface: AssignmentInterface = {
                 id: assignment.id,
                 type: assignment.assignmentType || 'Unknown', 
                 name: assignment.name,
