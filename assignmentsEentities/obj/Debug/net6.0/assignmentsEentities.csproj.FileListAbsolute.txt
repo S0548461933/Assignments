@@ -1,0 +1,12 @@
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\bin\Debug\net6.0\assignmentsEentities.deps.json
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\bin\Debug\net6.0\assignmentsEentities.dll
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\bin\Debug\net6.0\ref\assignmentsEentities.dll
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\bin\Debug\net6.0\assignmentsEentities.pdb
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.csproj.AssemblyReference.cache
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.AssemblyInfoInputs.cache
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.AssemblyInfo.cs
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.csproj.CoreCompileInputs.cache
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.dll
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\ref\assignmentsEentities.dll
+C:\Users\user\Task management system\Assignments1\Assignments\assignmentsEentities\obj\Debug\net6.0\assignmentsEentities.pdb

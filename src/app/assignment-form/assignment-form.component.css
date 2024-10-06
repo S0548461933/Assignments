@@ -1,0 +1,83 @@
+.assignment-form-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    margin: 5px 1%;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #777; /* צבע אפור */
+}
+
+.submit-button {
+    background-color: #28a745; /* צבע ירוק */
+}
+
+.back-button:hover {
+    background-color: #555; /* צבע כהה יותר */
+}
+
+.submit-button:hover {
+    background-color: #218838; /* צבע ירוק כהה יותר */
+}
+
+button[disabled] {
+    background-color: #ccc; /* צבע אפור כאשר הכפתור מושבת */
+    cursor: not-allowed; /* מצביע על כך שהכפתור לא ניתן ללחיצה */
+    color: #666; /* צבע טקסט אפור */
+}
+
+button[disabled]:hover {
+    cursor: not-allowed; /* שומר על המצביע כאילו הכפתור לא ניתן ללחיצה גם כאשר העכבר מעליו */
+    background-color: #ccc; /* שומר על צבע הרקע של הכפתור כאשר הוא מושבת */
+}
+

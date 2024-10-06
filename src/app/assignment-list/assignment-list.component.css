@@ -1,0 +1,127 @@
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    position: relative; /* This will allow us to position the title at the center */
+}
+
+.table-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.search-container {
+    margin-left: auto;
+}
+
+.search-input {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.create-task-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-task-button:hover {
+    background-color: #218838;
+}
+
+
+.custom-table th {
+    background-color: #007ad9;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.custom-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.table-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.search-container {
+    margin-left: auto;
+}
+
+.search-input {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+}
+
+.completed-task {
+    background-color: #dff0d8;
+}
+
+.completed-task td {
+    text-decoration: line-through;
+}
+
+.paginator {
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+

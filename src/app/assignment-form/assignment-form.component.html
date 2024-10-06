@@ -1,0 +1,57 @@
+<div class="assignment-form-container">
+  <h2>יצירת משימה חדשה</h2>
+  <form [formGroup]="assignmentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">שם המשימה:</label>
+      <input id="name" type="text" formControlName="name" />
+      <div *ngIf="assignmentForm.get('name')?.invalid && assignmentForm.get('name')?.touched">
+        <small class="error">שם המשימה הוא שדה חובה</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">תיאור המשימה:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="assignmentForm.get('description')?.invalid && assignmentForm.get('description')?.touched">
+        <small class="error">תיאור המשימה הוא שדה חובה</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">תאריך התחלה:</label>
+      <input id="startDate" type="date" formControlName="startDate" />
+      <div *ngIf="assignmentForm.get('startDate')?.invalid && assignmentForm.get('startDate')?.touched">
+        <small class="error">תאריך התחלה הוא שדה חובה</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">תאריך סיום:</label>
+      <input id="endDate" type="date" formControlName="endDate" />
+    </div>
+
+    <div class="form-group">
+      <label for="type">סוג משימה:</label>
+      <select id="type" formControlName="type">
+        <option value="">בחר סוג משימה</option>
+        <option value="personal">אישית</option>
+        <option value="work">עבודה</option>
+        <option value="study">לימודים</option>
+      </select>
+      <div *ngIf="assignmentForm.get('type')?.invalid && assignmentForm.get('type')?.touched">
+        <small class="error">סוג המשימה הוא שדה חובה</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="isRecurring">האם משימה מחזורית:</label>
+      <input id="isRecurring" type="checkbox" formControlName="isRecurring" />
+    </div>
+
+    <!-- כפתור חזרה למסך הקודם -->
+    <button type="button" class="back-button" (click)="goBack()">חזרה</button>
+
+    <!-- כפתור Submit - ננעל עד שהטופס יהיה תקין -->
+    <button type="submit" class="submit-button" [disabled]="assignmentForm.invalid">שלח</button>
+  </form>
+</div>

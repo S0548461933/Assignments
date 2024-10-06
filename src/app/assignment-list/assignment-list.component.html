@@ -1,0 +1,88 @@
+<!-- צ'ק בוקס להצגת משימות בארכיון -->
+<div class="archive-toggle">
+    <label>
+        <input type="checkbox" [(ngModel)]="showArchived" (change)="filterAssignments()" />
+        הצג משימות בארכיון
+    </label>
+</div>
+
+<p-table
+    #dt2
+    [value]="assignments"
+    dataKey="id"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [loading]="loading"
+    [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['name', 'description', 'type']"
+    class="custom-table"
+    [sortMode]="'single'" 
+    [sortField]="sortField"
+    [sortOrder]="sortOrder"
+>
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            <button class="create-task-button" (click)="createNewAssignment()">יצירת משימה חדשה</button>
+            <span class="table-title">רשימת משימות</span>
+            <span class="p-input-icon-left ml-auto search-container">
+                <i class="pi pi-search"></i>
+                <input #searchInput pInputText type="text" (input)="dt2.filterGlobal(searchInput.value, 'contains')" placeholder="חפש משימות" class="search-input"/>
+            </span>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:5%">קוד משימה</th>
+            <th pSortableColumn="type" style="width:10%">סוג המשימה
+                <p-sortIcon [field]="'type'"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" style="width:10%">שם משימה
+                <p-sortIcon [field]="'name'"></p-sortIcon>
+            </th>
+            <th style="width:20%">תיאור המשימה</th>     
+
+            <th pSortableColumn="startDate" style="width:15%">תאריך התחלה
+                <p-sortIcon [field]="'startDate'"></p-sortIcon>
+            </th>
+            <th style="width:10%">תאריך סיום</th>
+            <th style="width:10%">?חד פעמי</th>
+
+            <th style="width:15%">?האם היא הסתיימה</th>
+           
+            <th style="width:10%">ארכיון</th>
+            <th style="width:10%"></th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-assignment>
+        <tr *ngFor="let assignment of assignments">
+            <td>{{assignment.id}}</td>
+            <td>{{ assignment.type }}</td>
+            <td>{{ assignment.name }}</td>
+            <td>{{ assignment.description }}</td>
+
+            <td>{{ assignment.startDate | date: 'short' }}</td>
+            <td>{{ assignment.endDate | date: 'short' }}</td>
+            <td>
+                {{ assignment.isRecurring ? 'כן' : 'לא' }} 
+            </td>
+            <td>
+                <input type="checkbox" [(ngModel)]="assignment.isCompleted" (change)="toggleCompletion(assignment)" />
+            </td>
+           
+            <td>{{ assignment.isArchived ? 'כן' : 'לא' }}</td>
+            <td>
+                <button (click)="archiveAssignment(assignment)">ארכיון</button> 
+            </td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8" class="empty-message">לא נמצאו משימות.</td>
+        </tr>
+    </ng-template>
+</p-table>

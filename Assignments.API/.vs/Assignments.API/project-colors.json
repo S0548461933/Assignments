@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "700e190d-91f6-4f83-9443-1384a968996b": {
+      "ProjectGuid": "700e190d-91f6-4f83-9443-1384a968996b",
+      "DisplayName": "Assignments.API",
+      "ColorIndex": 0
+    },
+    "9bf32ce8-0f4c-4dda-8424-c4efbbb2c122": {
+      "ProjectGuid": "9bf32ce8-0f4c-4dda-8424-c4efbbb2c122",
+      "DisplayName": "Assignments.API",
+      "ColorIndex": 1
+    },
+    "d872fbd3-0df5-41f5-b0d9-e20c8da19109": {
+      "ProjectGuid": "d872fbd3-0df5-41f5-b0d9-e20c8da19109",
+      "DisplayName": "assignmentsEentities",
+      "ColorIndex": 2
+    },
+    "f8e869d7-031c-4809-ab9b-19e4a552549f": {
+      "ProjectGuid": "f8e869d7-031c-4809-ab9b-19e4a552549f",
+      "DisplayName": "Assignments.API",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}
